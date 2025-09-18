@@ -267,6 +267,7 @@
         .mt-48px {margin-top:48px;}
         /* Responsive Adjustments */
         @media (max-width: 768px) {
+            .navbar-toggler {background-color: #fff;}
             .hero {height: auto; padding:50px 8px;}
             .hero h1 {
                 font-size: 2.5rem;
@@ -280,6 +281,8 @@
                 font-size: 1.8rem;
             }
             .search-box form .form-control {padding:16px 10px;}
+            .navbar-nav li {width: 100%;}
+            .nav-link {padding: 16px 0px;}
             .blurred-bg {padding:36px 24px;}
             .top-48 {top:53px;}
             .mt-48px {margin-top:32px;}
@@ -566,7 +569,7 @@
         <div class="container">
             <a class="navbar-brand" href="#"><img src="logo.png" height="50"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="color: #fff !important;"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
