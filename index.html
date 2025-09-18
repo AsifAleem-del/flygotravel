@@ -259,13 +259,15 @@
             animation: fadeIn 1s ease forwards;
         }
         .hero-section .search-box { position: relative; z-index: 2; }
-        .search-box form .form-control {padding:20px 10px; border-radius:0px; padding-left: 50px;}
+        .search-box form .form-control {padding:20px 10px; border-radius:0px; padding-left: 50px !important;}
         .top-48 {top: 56px; left: 16px;}
         .blurred-bg {backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 0.2); border-radius:24px; padding:36px 40px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); color: #000; }
         .navbar-nav {display: flex; align-items: center;}
         .bg-light {background: #fff6dd  !important;}
+        .mt-48px {margin-top:48px;}
         /* Responsive Adjustments */
         @media (max-width: 768px) {
+            .hero {height: auto; padding:50px 8px;}
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -277,6 +279,10 @@
             .section-title {
                 font-size: 1.8rem;
             }
+            .search-box form .form-control {padding:16px 10px;}
+            .blurred-bg {padding:36px 24px;}
+            .top-48 {top:53px;}
+            .mt-48px {margin-top:32px;}
         }
 
 
@@ -286,7 +292,7 @@
         
         .main-image { height: 100%;  position: relative;  overflow: hidden; }
         
-        .main-image img { object-fit: cover; width: 100%; height: 100%;  transition: transform 0.5s ease;}
+        .main-image img { object-fit: cover; width: 100%; height: 100%; border-radius: 10px;  transition: transform 0.5s ease;}
         
         .main-image:hover img {  transform: scale(1.05); }
         
@@ -331,9 +337,7 @@
         }
         
         @media (max-width: 992px) {
-            .main-image {
-                height: 400px;
-            }
+            .main-image {height: 400px; padding: 16px;}
             
             .image-grid {
                 height: auto;
@@ -615,30 +619,37 @@
                     <!-- <h4 class="mb-4 text-center text-white">Plan Your Perfect Trip</h4> -->
                     <form>
                         <div class="row g-3">
-                            <div class="col p-0 position-relative">
+                            <div class="col-12 col-md p-0 position-relative">
                                 <label class="form-label text-white">From</label>
-                                <i class="fas fa-plane-departure me-2 position-absolute top-48" style="color:#717171;"></i>
+                                <i class="fas fa-plane-departure me-2 position-absolute top-48"
+                                    style="color:#717171;"></i>
                                 <input type="text" class="form-control" placeholder="Departure">
                             </div>
-                            <div class="col p-0 position-relative">
+                            <div class="col-12 col-md p-0 position-relative">
                                 <label class="form-label text-white">To</label>
-                                <i class="fas fa-plane-arrival me-2 position-absolute top-48" style="color:#717171;"></i>
-                                <input type="text" class="form-control" placeholder="Where to ?">
+                                <i class="fas fa-plane-arrival me-2 position-absolute top-48"
+                                    style="color:#717171;"></i>
+                                <input type="text" class="form-control" placeholder="Where to?">
                             </div>
-                            <div class="col p-0 position-relative">
+                            <div class="col-12 col-md p-0 position-relative">
                                 <label class="form-label text-white">Departure</label>
-                                <i class="fas fa-calendar-check input-icon position-absolute top-48" style="color:#717171;"></i>
+                                <i class="fas fa-calendar-check position-absolute top-48"
+                                    style="color:#717171;"></i>
                                 <input type="date" class="form-control">
                             </div>
-                            <div class="col p-0 position-relative">
+                            <div class="col-12 col-md p-0 position-relative">
                                 <label class="form-label text-white">Return</label>
-                                <i class="fas fa-calendar-xmark input-icon position-absolute top-48" style="color:#717171;"></i>
+                                <i class="fas fa-calendar-xmark position-absolute top-48"
+                                    style="color:#717171;"></i>
                                 <input type="date" class="form-control" placeholder="Select Return Date">
                             </div>
-                            <div class="col p-0" style="margin-top:48px;">
-                                <button type="submit" class="btn btn-secondary w-100" style="padding:20px 10px; border-radius: 0px;"> <i class="fas fa-search me-2"></i> Search Flights</button>
+                            <div class="col-12 col-md p-0 mt-48px">
+                                <button type="submit" class="btn btn-secondary w-100" style="padding:20px 10px; border-radius: 0;">
+                                    <i class="fas fa-search"></i> Search Flights
+                                </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
