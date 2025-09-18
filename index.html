@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlyGo Travel - Explore the World</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:#00007c;
+            --secondary: #FF7E41;
+            --light: #F8F9FA;
+            --dark: #1E2A38;
+        }
+        
+        body {font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; }
+        .navbar {padding:6px 0; transition: all 0.3s ease; background-color: #00007c; }
+        
+        .navbar-scrolled {
+            background-color:#00007c !important;
+            padding:6px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--primary);
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s;
+            color: #fff !important;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+        
+        .btn-primary {
+            background-color: #00007c;
+            border-color: #00007c;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color:#daa32f;
+            border-color:#daa32f;
+            transform: translateY(0px);
+        }
+        
+        .btn-secondary {
+            background-color:#daa32f;
+            border-color:#daa32f;
+            padding:16px 24px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color:#00007c ;
+            border-color: #00007c;
+            transform: translateY(0px);
+        }
+
+        .btn-outline-primary {border: solid 1px #00007c; color:#00007c;}
+        .btn-outline-primary:hover {background:#00007c; color:#fff;}
+        .text-primary {color:#00007c !important;}
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('7.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        section.hero:before {background: #00007c;}
+        
+        .search-form {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: #841412;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background:#daa32f;
+            margin: 15px auto 0;
+        }
+        
+        .destination-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .destination-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background:#00007c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .package-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .newsletter {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            padding: 100px 0;
+            color: white;
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background:#fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color:#00007c;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background:#daa32f;
+            transform: translateY(-5px);
+            color:#fff;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+        .hero-section .search-box { position: relative; z-index: 2; }
+        .search-box form .form-control {padding:20px 10px; border-radius:0px; padding-left: 50px;}
+        .top-48 {top: 56px; left: 16px;}
+        .blurred-bg {backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 0.2); border-radius:24px; padding:36px 40px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); color: #000; }
+        .navbar-nav {display: flex; align-items: center;}
+        .bg-light {background: #fff6dd  !important;}
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+
+
+
+        .travel-grid { padding:42px 0px;}
+        
+        .main-image { height: 100%;  position: relative;  overflow: hidden; }
+        
+        .main-image img { object-fit: cover; width: 100%; height: 100%;  transition: transform 0.5s ease;}
+        
+        .main-image:hover img {  transform: scale(1.05); }
+        
+        .image-grid { display: grid; grid-template-columns: 1fr; gap: 15px; height: 100%; }
+        
+        .image-row { display: grid;  grid-template-columns: 1fr 1fr;  gap: 15px; }
+        
+        .grid-item { position: relative;  overflow: hidden; border-radius: 10px;  cursor: pointer; }
+        
+        .grid-item img {width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        
+        .grid-item:hover img { transform: scale(1.1); }
+        
+        .image-overlay {  position: absolute; bottom: 0; left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .main-image:hover .image-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .grid-item:hover .image-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .overlay-content h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .overlay-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 992px) {
+            .main-image {
+                height: 400px;
+            }
+            
+            .image-grid {
+                height: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .image-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+
+
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 0;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            border: none;
+            height: 100%;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            margin: 30px auto 20px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--success-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .card-icon::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .card-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .card-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            padding: 0 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-item {
+            padding: 12px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-item::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--success-color);
+            margin-right: 12px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(39, 174, 96, 0.1));
+            padding-left: 35px;
+        }
+
+        .feature-item:hover::before {
+            transform: scale(1.2);
+        }
+
+        .feature-item span {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Color themes for different cards */
+        .card-financial {
+            --theme-color: #e74c3c;
+        }
+
+        .card-service {
+            --theme-color: #9b59b6;
+        }
+
+        .card-support {
+            --theme-color: #f39c12;
+        }
+
+        .card-payment {
+            --theme-color: #27ae60;
+        }
+
+        .card-financial .card-icon,
+        .card-service .card-icon,
+        .card-support .card-icon,
+        .card-payment .card-icon {
+            background: linear-gradient(135deg, var(--theme-color), #3498db);
+        }
+
+        .card-financial .card-icon::before,
+        .card-service .card-icon::before,
+        .card-support .card-icon::before,
+        .card-payment .card-icon::before {
+            border-color: var(--theme-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          
+            
+            .service-card {
+                margin-bottom: 20px;
+            }
+            
+            .card-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .card-icon i {
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+                        
+            .feature-item {
+                padding: 10px 20px;
+            }
+        }
+
+        /* Loading animation */
+        .service-card.loading {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        /* Pulse effect for icons */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .service-card:hover .card-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="logo.png" height="50"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Premium Class</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#destinations">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#packages">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#testimonials">Multicity</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#contact">Wildlife</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#contact">Support</a>
+                    </li>
+                    <li>
+                        <span style="display: block; color: #fff;  position: relative; right: -80px;">
+                           <span style="display: flex; flex-direction: row; align-items: center; align-items: center;"> <span style="font-size:32px;">☎️</span>  <span style="display: flex; flex-direction: column; justify-content: start; padding-left: 8px;"><span class="d-block" style="font-size:18px; line-height: normal; font-weight: bold;">0800 123 456 </span><span style="font-size: 12px;">Our toll free number</span></span></span> 
+
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate py-4">
+                <h1 class="mt-4">Explore The World With FlyGo Travel</h1>
+                <p>Discover amazing places at exclusive prices. We offer the best travel experiences around the globe.</p>
+                <a href="#destinations" class="btn btn-secondary">Explore Destinations</a>
+            </div>
+            <!-- Search Section -->
+             <div class="col-lg-12 mt-4">
+                <div class="search-box blurred-bg"> <!-- Added class `blurred-bg` -->
+                    <!-- <h4 class="mb-4 text-center text-white">Plan Your Perfect Trip</h4> -->
+                    <form>
+                        <div class="row g-3">
+                            <div class="col p-0 position-relative">
+                                <label class="form-label text-white">From</label>
+                                <i class="fas fa-plane-departure me-2 position-absolute top-48" style="color:#717171;"></i>
+                                <input type="text" class="form-control" placeholder="Departure">
+                            </div>
+                            <div class="col p-0 position-relative">
+                                <label class="form-label text-white">To</label>
+                                <i class="fas fa-plane-arrival me-2 position-absolute top-48" style="color:#717171;"></i>
+                                <input type="text" class="form-control" placeholder="Where to ?">
+                            </div>
+                            <div class="col p-0 position-relative">
+                                <label class="form-label text-white">Departure</label>
+                                <i class="fas fa-calendar-check input-icon position-absolute top-48" style="color:#717171;"></i>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col p-0 position-relative">
+                                <label class="form-label text-white">Return</label>
+                                <i class="fas fa-calendar-xmark input-icon position-absolute top-48" style="color:#717171;"></i>
+                                <input type="date" class="form-control" placeholder="Select Return Date">
+                            </div>
+                            <div class="col p-0" style="margin-top:48px;">
+                                <button type="submit" class="btn btn-secondary w-100" style="padding:20px 10px; border-radius: 0px;"> <i class="fas fa-search me-2"></i> Search Flights</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    <!-- <section id="search" class="py-5" style="margin-top:0px; position: relative; z-index: 1000;">
+        <div class="container">
+            <div class="search-form animate">
+                <h3 class="text-center mb-4">Find Your Perfect Trip</h3>
+                <form>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Destination</label>
+                            <input type="text" class="form-control" placeholder="Where to?">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label class="form-label">Check In</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label class="form-label">Check Out</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label class="form-label">Travelers</label>
+                            <select class="form-select">
+                                <option>1 Adult</option>
+                                <option>2 Adults</option>
+                                <option>Family</option>
+                                <option>Group</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Search Flights</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section> -->
+        </div>
+    </section>
+
+    
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Popular Destinations</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="destination-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="destination-img w-100" alt="Bali">
+                            <div class="price-tag">$899</div>
+                        </div>
+                        <div class="p-3 bg-white">
+                            <h5>Bali, Indonesia</h5>
+                            <p class="text-muted">7 Days 6 Nights</p>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fas fa-star text-warning"></i> 4.8 (256 reviews)</span>
+                                <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="destination-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="destination-img w-100" alt="Paris">
+                            <div class="price-tag">$1,199</div>
+                        </div>
+                        <div class="p-3 bg-white">
+                            <h5>Paris, France</h5>
+                            <p class="text-muted">5 Days 4 Nights</p>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fas fa-star text-warning"></i> 4.9 (312 reviews)</span>
+                                <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="destination-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="destination-img w-100" alt="Santorini">
+                            <div class="price-tag">$1,499</div>
+                        </div>
+                        <div class="p-3 bg-white">
+                            <h5>Santorini, Greece</h5>
+                            <p class="text-muted">6 Days 5 Nights</p>
+                            <div class="d-flex justify-content-between">
+                                <span><i class="fas fa-star text-warning"></i> 4.7 (189 reviews)</span>
+                                <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary" style="padding:16px 24px">View All Destinations</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="d-flex justify-content-center container">
+        <div class="row travel-grid">
+            
+         <h2 class="text-center section-title">Premium Class</h2>
+            <div class="col-lg-12">
+                <div class="row">
+                <!-- Full height main image -->
+                    <div class="col-lg-6 py-0 px-0">
+                        <div class="main-image">
+                            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="Mountain Landscape">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <h5>Mountain Paradise</h5>
+                                    <p>Switzerland</p>
+                                    <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Split image section -->
+                    <div class="col-lg-6 py-0 p-3">
+                        <div class="image-grid">
+                            <!-- First row with two images -->
+                            <div class="image-row">
+                                <div class="grid-item">
+                                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="Mountain View">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h5>Rocky Mountains</h5>
+                                            <p>Canada</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item">
+                                    <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="Beach">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h5>Sunset Beach</h5>
+                                            <p>Maldives</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <!-- Second row with two images -->
+                            <div class="image-row">
+                                <div class="grid-item">
+                                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="Italy">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h5>Historic City</h5>
+                                            <p>Italy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item">
+                                    <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="Forest">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h5>Mystical Forest</h5>
+                                            <p>Germany</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">FlyGo Travel Packages</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="package-card card h-100">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Adventure Package">
+                        <div class="card-body">
+                            <h5 class="card-title">Adventure Package</h5>
+                            <p class="card-text">Experience thrilling activities like hiking, rafting, and zip-lining in exotic locations.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Guided tours</li>
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Equipment included</li>
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> 5-star accommodations</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary mb-0">$1,299</h4>
+                                <a href="#" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="package-card card h-100">
+                        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Luxury Package">
+                        <div class="card-body">
+                            <h5 class="card-title">Luxury Package</h5>
+                            <p class="card-text">Indulge in premium experiences with 5-star hotels, fine dining, and private tours.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Luxury resorts</li>
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Private transfers</li>
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Fine dining experiences</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary mb-0">$2,499</h4>
+                                <a href="#" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="package-card card h-100">
+                        <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Family Package">
+                        <div class="card-body">
+                            <h5 class="card-title">Family Package</h5>
+                            <p class="card-text">Create unforgettable memories with your family with our specially curated packages.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Family-friendly activities</li>
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Kids stay free</li>
+                                <li class="list-group-item"><i class="fas fa-check text-primary me-2"></i> Special discounts</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary mb-0">$1,899</h4>
+                                <a href="#" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary" style="padding:16px 24px">View All Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="services-container">
+            <h2 class="text-center section-title">FlyGo Premium Services</h2>
+
+            <div class="row g-4">
+                <!-- Financial Protection Card -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 p-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card card-financial light-yellow" style="background:#fff6dd">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="card-title">Financial Protection</h5>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span>Member of Travel Trust Association (Q5428)</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>ATOL Bonded, ATOL Licence (T7638)</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Issued by the Civil Aviation Authority</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>100% Financial Protection</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Secure Payments through Worldpay</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>3D Secure Online Payments</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Personalized Service Card -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 p-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card card-service" style="background:#ddedff !important">
+                        <div class="card-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h5 class="card-title">Personalized Service</h5>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span>Unparalleled Service</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Dedicated staff with a passion for Travel</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Multi City Flights & Holidays Deals</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Seat & Meal Requests on Flights</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>No fee on Debit/Credit Cards</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Seamless Booking Procedure</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Customer Support Card -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 p-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card card-support" style="background:#fff6dd">
+                        <div class="card-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5 class="card-title">Customer Support</h5>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span>Sales Support between 0700 - Midnight</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>24/7 Support via Email</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Email Support during out of office hours</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Instant Support</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Changes & Cancellations Flexibility</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Positive feedback on trustpilot.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Flexible Payment Plan Card -->
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 p-0" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card card-payment" style="background:#ddedff !important">
+                        <div class="card-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h5 class="card-title">Flexible Payment Plan</h5>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span>Book your dream holiday with Low Deposit</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Deposit as low as £50 Per Person</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Low Deposit on most Flights & Holidays</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Weekly or Monthly Payment Plans</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>Choose your own Payment plan</span>
+                            </li>
+                            <li class="feature-item">
+                                <span>No Additional cost on deposit option</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <!-- <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">What Our Travelers Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="testimonial-img" alt="Sarah Johnson">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <p class="text-muted mb-0">Adventure Traveler</p>
+                            </div>
+                        </div>
+                        <p class="text-muted">"The adventure package to Costa Rica was absolutely incredible! Every detail was taken care of, and the guides were knowledgeable and friendly."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-img" alt="Michael Chen">
+                            <div>
+                                <h5 class="mb-0">Michael Chen</h5>
+                                <p class="text-muted mb-0">Luxury Traveler</p>
+                            </div>
+                        </div>
+                        <p class="text-muted">"The luxury package to the Maldives exceeded all our expectations. The private villa and personalized service made our honeymoon unforgettable."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="testimonial-img" alt="Emma Rodriguez">
+                            <div>
+                                <h5 class="mb-0">Emma Rodriguez</h5>
+                                <p class="text-muted mb-0">Family Traveler</p>
+                            </div>
+                        </div>
+                        <p class="text-muted">"Our family vacation to Orlando was seamless thanks to FlyGo Travel. The kids had a blast, and we didn't have to worry about a thing!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container text-center">
+            <h2 class="section-title text-white">Subscribe to Our Newsletter</h2>
+            <p class="mb-4">Get the latest travel deals, tips, and exclusive offers straight to your inbox.</p>
+            <form class="row g-3 justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-lg" placeholder="Your email address">
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="mb-2"><img src="logo.png" height="60" style="margin-left: -14px;" /></div>
+                    <p class="mb-4">Making your travel dreams come true with exceptional service and unforgettable experiences.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#PremiumClass">Premium Class</a></li>
+                        <li><a href="#Destinations">Destinations</a></li>
+                        <li><a href="#packages">packages</a></li>
+                         <li><a href="#multicity">Multicity</a></li>
+                        <li><a href="#wildlife">Wildlife</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Travel Street, xyz City</li>
+                        <li><i class="fas fa-phone me-2"></i> 0800 123 456</li>
+                        <li><i class="fas fa-envelope me-2"></i> xyz@flygotravel.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h3 class="footer-title">Popular Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Bali, Indonesia</a></li>
+                        <li><a href="#">Paris, France</a></li>
+                        <li><a href="#">Santorini, Greece</a></li>
+                        <li><a href="#">Tokyo, Japan</a></li>
+                        <li><a href="#">New York, USA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                <p>&copy; 2025 FlyGo Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.5s ease-in-out';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
